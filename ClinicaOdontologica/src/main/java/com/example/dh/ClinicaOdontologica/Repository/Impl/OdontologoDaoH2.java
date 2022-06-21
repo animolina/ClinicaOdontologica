@@ -8,7 +8,7 @@ import java.util.List;
 
 public class OdontologoDaoH2 implements IDaoRepository<Odontologo> {
     private final static String DB_JDBC_DRIVER = "org.h2.Driver";
-    private final static String DB_URL = "jdbc:h2:~/Integrador;INIT=RUNSCRIPT FROM 'ClinicaOdontologica/createOdontologo.sql'"; //con esta instrucción cuando se conecta a la base ejecuta el script de sql que esta en el archivo create.sql
+    private final static String DB_URL = "jdbc:h2:~/Integrador;INIT=RUNSCRIPT FROM 'ClinicaOdontologica/create.sql'"; //con esta instrucción cuando se conecta a la base ejecuta el script de sql que esta en el archivo create.sql
     private final static String DB_USER = "sa";
     private final static String DB_PASSWORD = "";
     private static final Logger logger = Logger.getLogger(OdontologoDaoH2.class); //Objeto logger para empleo de logs.
@@ -152,6 +152,7 @@ public class OdontologoDaoH2 implements IDaoRepository<Odontologo> {
                 preparedStatement.setString(1, odontologo.getNombre());
                 preparedStatement.setString(2, odontologo.getApellido());
                 preparedStatement.setLong(3, odontologo.getMatricula());
+                preparedStatement.setLong(4,odontologo.getId());
                 preparedStatement.executeUpdate();
             } finally {
                 //cierra el statement incluso si ocurre algun error al setear atributos o ejecutar la sentencia sql.

@@ -17,7 +17,7 @@ public class Paciente {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
-        Dni = dni;
+        this.Dni = dni;
         this.fechaIngreso = fechaIngreso;
         this.domicilio = domicilio;
     }
@@ -28,7 +28,7 @@ public class Paciente {
     public Paciente(String nombre, String apellido, int dni, LocalDate fechaIngreso, Domicilio domicilio) {
         this.nombre = nombre;
         this.apellido = apellido;
-        Dni = dni;
+        this.Dni = dni;
         this.fechaIngreso = fechaIngreso;
         this.domicilio = domicilio;
     }
