@@ -1,5 +1,6 @@
 package com.example.dh.ClinicaOdontologica.Model;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class Paciente {
@@ -8,12 +9,12 @@ public class Paciente {
     private String nombre;
     private String apellido;
     private int Dni;
-    private LocalDate fechaIngreso;
+    private Date fechaIngreso;
     private Domicilio domicilio;
 
     //Constructor con id
 
-    public Paciente(Long id, String nombre, String apellido, int dni, LocalDate fechaIngreso, Domicilio domicilio) {
+    public Paciente(Long id, String nombre, String apellido, int dni, Date fechaIngreso, Domicilio domicilio) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -25,7 +26,7 @@ public class Paciente {
 
     //Constructor sin id
 
-    public Paciente(String nombre, String apellido, int dni, LocalDate fechaIngreso, Domicilio domicilio) {
+    public Paciente(String nombre, String apellido, int dni, Date fechaIngreso, Domicilio domicilio) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.Dni = dni;
@@ -69,11 +70,11 @@ public class Paciente {
         Dni = dni;
     }
 
-    public LocalDate getFechaIngreso() {
+    public Date getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(LocalDate fechaIngreso) {
+    public void setFechaIngreso(Date fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 

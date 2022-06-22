@@ -1,17 +1,17 @@
 package com.example.dh.ClinicaOdontologica.Model;
+import java.sql.Date;
 
-import java.time.LocalDateTime;
 
 public class Turno {
     //atributos
     private Long id;
     private Paciente paciente;
     private Odontologo odontologo;
-    private LocalDateTime fechaYhora;
+    private Date fechaYhora;
 
     //Constructor con id
 
-    public Turno(Long id, Paciente paciente, Odontologo odontologo, LocalDateTime fechaYhora) {
+    public Turno(Long id, Paciente paciente, Odontologo odontologo, Date fechaYhora) {
         this.id = id;
         this.paciente = paciente;
         this.odontologo = odontologo;
@@ -20,7 +20,7 @@ public class Turno {
 
     //Constructor sin id
 
-    public Turno(Paciente paciente, Odontologo odontologo, LocalDateTime fechaYhora) {
+    public Turno(Paciente paciente, Odontologo odontologo, Date fechaYhora) {
         this.paciente = paciente;
         this.odontologo = odontologo;
         this.fechaYhora = fechaYhora;
@@ -55,11 +55,11 @@ public class Turno {
         this.odontologo = odontologo;
     }
 
-    public LocalDateTime getFechaYhora() {
+    public Date getFechaYhora() {
         return fechaYhora;
     }
 
-    public void setFechaYhora(LocalDateTime fechaYhora) {
+    public void setFechaYhora(Date fechaYhora) {
         this.fechaYhora = fechaYhora;
     }
 }
