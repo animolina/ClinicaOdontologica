@@ -1,13 +1,17 @@
 package com.example.dh.ClinicaOdontologica.Service;
 import com.example.dh.ClinicaOdontologica.Model.Paciente;
 import com.example.dh.ClinicaOdontologica.Repository.IDaoRepository;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PacienteService {
+
     private IDaoRepository<Paciente> pacienteDao;
-    public PacienteService(IDaoRepository<Paciente> pacienteDao){
+    @Autowired
+    public PacienteService (IDaoRepository<Paciente> pacienteDao){
         this.pacienteDao = pacienteDao;
     }
 

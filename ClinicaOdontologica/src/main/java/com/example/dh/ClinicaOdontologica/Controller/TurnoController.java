@@ -1,13 +1,9 @@
 package com.example.dh.ClinicaOdontologica.Controller;
-import com.example.dh.ClinicaOdontologica.Model.Odontologo;
-import com.example.dh.ClinicaOdontologica.Model.Paciente;
 import com.example.dh.ClinicaOdontologica.Model.Turno;
-import com.example.dh.ClinicaOdontologica.Repository.Impl.OdontologoDaoH2;
-import com.example.dh.ClinicaOdontologica.Repository.Impl.PacienteDaoH2;
-import com.example.dh.ClinicaOdontologica.Repository.Impl.TurnoDaoH2;
 import com.example.dh.ClinicaOdontologica.Service.OdontologoService;
 import com.example.dh.ClinicaOdontologica.Service.PacienteService;
 import com.example.dh.ClinicaOdontologica.Service.TurnoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +13,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/turnos")
 public class TurnoController {
-    private TurnoService turnoService = new TurnoService(new TurnoDaoH2());
-    private PacienteService pacienteService = new PacienteService(new PacienteDaoH2());
-    private OdontologoService odontologoService = new OdontologoService(new OdontologoDaoH2());
+
+    private TurnoService turnoService;
+    private PacienteService pacienteService;
+    private OdontologoService odontologoService;
+    @Autowired
+    public TurnoController(TurnoService turnoService, PacienteService pacienteService, OdontologoService odontologoService) {
+        this.turnoService = turnoService;
+        this.pacienteService = pacienteService;
+        this.odontologoService = odontologoService;
+    }
 
     //1.Agregar turnos
     @PostMapping

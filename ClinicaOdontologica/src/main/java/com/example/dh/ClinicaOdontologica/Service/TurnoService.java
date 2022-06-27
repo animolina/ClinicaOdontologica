@@ -2,14 +2,20 @@ package com.example.dh.ClinicaOdontologica.Service;
 
 import com.example.dh.ClinicaOdontologica.Model.Turno;
 import com.example.dh.ClinicaOdontologica.Repository.IDaoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TurnoService {
+
     private IDaoRepository<Turno> turnoDao;
+    @Autowired
     public TurnoService(IDaoRepository<Turno> turnoDao){
         this.turnoDao = turnoDao;
     }
+
     //métodos
     //1. Registrar un turno en la base de datos.
     public Turno registrarTurno(Turno turno) throws Exception{

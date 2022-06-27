@@ -1,7 +1,8 @@
 package com.example.dh.ClinicaOdontologica.Controller;
+import com.example.dh.ClinicaOdontologica.DTO.OdontologoDTO;
 import com.example.dh.ClinicaOdontologica.Model.Odontologo;
-import com.example.dh.ClinicaOdontologica.Repository.Impl.OdontologoDaoH2;
 import com.example.dh.ClinicaOdontologica.Service.OdontologoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/odontologos")
 public class OdontologoController {
-    private OdontologoService odontologoService = new OdontologoService(new OdontologoDaoH2());
+
+
+    private OdontologoService odontologoService;
+
+
+    @Autowired
+    public OdontologoController(OdontologoService odontologoService, OdontologoDTO odontologoDTO) {
+        this.odontologoService = odontologoService;
+    }
 
     //1.Agregar odontólogos
     @PostMapping
