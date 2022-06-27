@@ -24,7 +24,7 @@ public class OdontologoService {
     }
 
     //3. Obtener un listado de todos los odontólogos registrados en la DB.
-    public List<Odontologo> buscarTodos() throws Exception{
+    public List<Odontologo> buscarTodosOdontologos() throws Exception{
         return odontologoDao.buscarTodos();
     }
 
@@ -39,7 +39,7 @@ public class OdontologoService {
     }
 
     //6.Eliminar todos los odontologos de la base de datos
-    public void eliminarTodos() throws Exception{
+    public void eliminarTodosOdontologos() throws Exception{
         odontologoDao.eliminarTodos();
     }
 
