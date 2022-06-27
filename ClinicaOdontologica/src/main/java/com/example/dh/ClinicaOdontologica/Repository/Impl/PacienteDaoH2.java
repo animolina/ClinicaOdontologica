@@ -185,8 +185,9 @@ public class PacienteDaoH2 implements IDaoRepository<Paciente> {
             //1.Levantar driver y conectarse.
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-
-            //2.Creo una sentencia
+            //2.1 Elimino el domicilio
+            domicilioDaoH2.eliminarPorId(buscarPorId(id).getDomicilio().getId());
+            //2.2Creo una sentencia
             preparedStatement = connection.prepareStatement("DELETE FROM pacientes where id = ?");
 
             try {
@@ -212,8 +213,9 @@ public class PacienteDaoH2 implements IDaoRepository<Paciente> {
             //1.Levantar driver y conectarse.
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-
-            //2.Creo una sentencia
+            //2.1 Elimino los domicilios
+            domicilioDaoH2.eliminarTodos();
+            //2.2 Creo una sentencia
             preparedStatement = connection.prepareStatement("DELETE FROM pacientes");
 
             try {
