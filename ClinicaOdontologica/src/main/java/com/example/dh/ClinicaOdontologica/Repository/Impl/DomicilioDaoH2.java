@@ -1,11 +1,7 @@
 package com.example.dh.ClinicaOdontologica.Repository.Impl;
-
 import com.example.dh.ClinicaOdontologica.Model.Domicilio;
-import com.example.dh.ClinicaOdontologica.Model.Odontologo;
-import com.example.dh.ClinicaOdontologica.Model.Paciente;
 import com.example.dh.ClinicaOdontologica.Repository.IDaoRepository;
 import org.apache.log4j.Logger;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

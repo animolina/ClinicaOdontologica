@@ -26,8 +26,6 @@ public class Turno {
         this.fechaYhora = fechaYhora;
     }
     //Constructor vacío
-
-
     public Turno() {
 
     }
@@ -62,4 +60,17 @@ public class Turno {
     public void setFechaYhora(Date fechaYhora) {
         this.fechaYhora = fechaYhora;
     }
+
+    //Sobrescritura método toString
+
+    @Override
+    public String toString() {
+        return "Turno{" +
+                "id=" + id +
+                ", paciente=" + paciente +
+                ", odontologo=" + odontologo +
+                ", fecha y hora=" + fechaYhora +
+                '}';
+    }
+
 }

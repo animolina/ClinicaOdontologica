@@ -1,13 +1,9 @@
 package com.example.dh.ClinicaOdontologica.Repository.Impl;
-
 import com.example.dh.ClinicaOdontologica.Model.Domicilio;
-import com.example.dh.ClinicaOdontologica.Model.Odontologo;
 import com.example.dh.ClinicaOdontologica.Model.Paciente;
 import com.example.dh.ClinicaOdontologica.Repository.IDaoRepository;
 import com.example.dh.ClinicaOdontologica.Util.Util;
 import org.apache.log4j.Logger;
-import org.springframework.boot.builder.ParentContextApplicationContextInitializer;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

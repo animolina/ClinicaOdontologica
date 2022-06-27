@@ -1,14 +1,13 @@
 package com.example.dh.ClinicaOdontologica.Model;
 
 import java.sql.Date;
-import java.time.LocalDate;
 
 public class Paciente {
     //Atributos
     private Long id;
     private String nombre;
     private String apellido;
-    private int Dni;
+    private int dni;
     private Date fechaIngreso;
     private Domicilio domicilio;
 
@@ -18,7 +17,7 @@ public class Paciente {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.Dni = dni;
+        this.dni = dni;
         this.fechaIngreso = fechaIngreso;
         this.domicilio = domicilio;
     }
@@ -29,7 +28,7 @@ public class Paciente {
     public Paciente(String nombre, String apellido, int dni, Date fechaIngreso, Domicilio domicilio) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.Dni = dni;
+        this.dni = dni;
         this.fechaIngreso = fechaIngreso;
         this.domicilio = domicilio;
     }
@@ -44,6 +43,10 @@ public class Paciente {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -63,11 +66,11 @@ public class Paciente {
     }
 
     public int getDni() {
-        return Dni;
+        return dni;
     }
 
     public void setDni(int dni) {
-        Dni = dni;
+        this.dni = dni;
     }
 
     public Date getFechaIngreso() {
@@ -84,5 +87,19 @@ public class Paciente {
 
     public void setDomicilio(Domicilio domicilio) {
         this.domicilio = domicilio;
+    }
+
+    //Sobrescritura método toString
+
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", dni='" + dni + '\'' +
+                ", fechaIngreso=" + fechaIngreso +
+                ", domicilio=" + domicilio +
+                '}';
     }
 }
