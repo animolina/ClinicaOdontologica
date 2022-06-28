@@ -1,6 +1,6 @@
 package com.example.dh.ClinicaOdontologica.Repository;
-
 import java.util.List;
+
 
 public interface IDaoRepository<T> {
     public T agregar(T t) throws Exception;

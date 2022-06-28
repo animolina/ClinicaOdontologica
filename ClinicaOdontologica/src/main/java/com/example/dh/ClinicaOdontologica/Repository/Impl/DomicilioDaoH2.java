@@ -2,13 +2,15 @@ package com.example.dh.ClinicaOdontologica.Repository.Impl;
 import com.example.dh.ClinicaOdontologica.Model.Domicilio;
 import com.example.dh.ClinicaOdontologica.Repository.IDaoRepository;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@Repository
 public class DomicilioDaoH2 implements IDaoRepository<Domicilio> {
     private final static String DB_JDBC_DRIVER = "org.h2.Driver";
-    private final static String DB_URL = "jdbc:h2:~/Integrador;INIT=RUNSCRIPT FROM 'ClinicaOdontologica/create.sql'"; //con esta instrucción cuando se conecta a la base ejecuta el script de sql que esta en el archivo create.sql
+    private final static String DB_URL = "jdbc:h2:~/Integrador;INIT=RUNSCRIPT FROM 'create.sql'"; //con esta instrucción cuando se conecta a la base ejecuta el script de sql que esta en el archivo create.sql
     private final static String DB_USER = "sa";
     private final static String DB_PASSWORD = "";
     private static final Logger logger = Logger.getLogger(DomicilioDaoH2.class); //Objeto logger para empleo de logs.
@@ -23,7 +25,7 @@ public class DomicilioDaoH2 implements IDaoRepository<Domicilio> {
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
             //2.Creo una sentencia
-            preparedStatement = connection.prepareStatement("INSERT INTO domicilios (calle,numero, localidad, provincia) VALUES(?,?,?,?)");
+            preparedStatement = connection.prepareStatement("INSERT INTO domicilios (calle,numero, localidad, provincia) VALUES(?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             //como el id está seteado como autoincremental en la DB, no se lo pasamos.
             //preparedStatement.setInt(1, domicilio.getId());
 
@@ -34,6 +36,9 @@ public class DomicilioDaoH2 implements IDaoRepository<Domicilio> {
                 preparedStatement.setString(3, domicilio.getLocalidad());
                 preparedStatement.setString(4,domicilio.getProvincia());
                 preparedStatement.executeUpdate();
+                ResultSet keys = preparedStatement.getGeneratedKeys();
+                if(keys.next())
+                    domicilio.setId(keys.getLong(1));
             } finally {
                 //cierra el statement incluso si ocurre algun error al setear atributos o ejecutar la sentencia sql.
                 preparedStatement.close();

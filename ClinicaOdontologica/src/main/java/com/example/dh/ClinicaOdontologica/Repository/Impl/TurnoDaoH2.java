@@ -1,17 +1,20 @@
 package com.example.dh.ClinicaOdontologica.Repository.Impl;
+import com.example.dh.ClinicaOdontologica.Model.Domicilio;
 import com.example.dh.ClinicaOdontologica.Model.Odontologo;
 import com.example.dh.ClinicaOdontologica.Model.Paciente;
 import com.example.dh.ClinicaOdontologica.Model.Turno;
 import com.example.dh.ClinicaOdontologica.Repository.IDaoRepository;
 import com.example.dh.ClinicaOdontologica.Util.Util;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@Repository
 public class TurnoDaoH2 implements IDaoRepository<Turno> {
     private final static String DB_JDBC_DRIVER = "org.h2.Driver";
-    private final static String DB_URL = "jdbc:h2:~/Integrador;INIT=RUNSCRIPT FROM 'ClinicaOdontologica/create.sql'"; //con esta instrucción cuando se conecta a la base ejecuta el script de sql que esta en el archivo create.sql
+    private final static String DB_URL = "jdbc:h2:~/Integrador;INIT=RUNSCRIPT FROM 'create.sql'"; //con esta instrucción cuando se conecta a la base ejecuta el script de sql que esta en el archivo create.sql
     private final static String DB_USER = "sa";
     private final static String DB_PASSWORD = "";
     private PacienteDaoH2 pacienteDaoH2 = new PacienteDaoH2();
@@ -26,24 +29,22 @@ public class TurnoDaoH2 implements IDaoRepository<Turno> {
             //1.Levantar driver y conectarse.
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            //2.1 guardo el odontologo del turno para poder usar el id en el campo odontologo_id de la tabla turnos.
-            Odontologo odontologo = odontologoDaoH2.agregar(turno.getOdontologo()); //guardo el odontologo del turno en la tabla odontologos.
-            turno.getOdontologo().setId(odontologo.getId());//al odontologo del turno, le seteo como id, el del odontologo guardado en el paso anterior.
-            //2.2 guardo el paciente del turno para poder usar el id en el campo paciente_id de la tabla turnos.
-            Paciente paciente = pacienteDaoH2.agregar(turno.getPaciente()); //guardo el paciente del turno en la tabla pacientes.
-            turno.getPaciente().setId(paciente.getId());//al paciente del turno, le seteo como id, el del paciente guardado en el paso anterior.
-            //2.3 Creo una sentencia
+
+            //2.2 Creo una sentencia
             preparedStatement = connection.prepareStatement("INSERT INTO turnos (paciente_id, odontologo_id, fecha_y_hora) VALUES(?,?,?)", Statement.RETURN_GENERATED_KEYS);
             //como el id está seteado como autoincremental en la DB, no se lo pasamos.
             //preparedStatement.setInt(1, turno.getId());
 
             //3. Seteo atributos y ejecuto una sentencia SQL
             try {
-                preparedStatement.setLong(1,paciente.getId());
-                preparedStatement.setLong(2, odontologo.getId());
+                preparedStatement.setLong(1,turno.getPaciente().getId());
+                preparedStatement.setLong(2, turno.getOdontologo().getId());
                 //Hay que convertir el LocalDate en sql.LocalDate (son clases distintas)
                 preparedStatement.setDate(3, Util.utilDateToSqlDate(turno.getFechaYhora()));
                 preparedStatement.executeUpdate();
+                ResultSet keys = preparedStatement.getGeneratedKeys();
+                if(keys.next())
+                    turno.setId(keys.getLong(1));
             } finally {
                 //cierra el statement incluso si ocurre algun error al setear atributos o ejecutar la sentencia sql.
                 preparedStatement.close();

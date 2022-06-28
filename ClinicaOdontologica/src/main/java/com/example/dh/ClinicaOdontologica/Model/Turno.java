@@ -36,6 +36,9 @@ public class Turno {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Paciente getPaciente() {
         return paciente;

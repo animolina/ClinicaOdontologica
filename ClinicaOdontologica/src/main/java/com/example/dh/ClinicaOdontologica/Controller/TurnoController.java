@@ -1,4 +1,6 @@
 package com.example.dh.ClinicaOdontologica.Controller;
+import com.example.dh.ClinicaOdontologica.Model.Odontologo;
+import com.example.dh.ClinicaOdontologica.Model.Paciente;
 import com.example.dh.ClinicaOdontologica.Model.Turno;
 import com.example.dh.ClinicaOdontologica.Service.OdontologoService;
 import com.example.dh.ClinicaOdontologica.Service.PacienteService;
@@ -26,12 +28,21 @@ public class TurnoController {
 
     //1.Agregar turnos
     @PostMapping
-    public ResponseEntity<Turno> registrarTurno(@RequestBody Turno turno) throws Exception {
-        ResponseEntity<Turno> response = null;
-        if (pacienteService.buscarPacientePorId(turno.getPaciente().getId()) != null && odontologoService.buscarOdontologoPorId(turno.getOdontologo().getId())!= null) {
+    public ResponseEntity registrarTurno(@RequestBody Turno turno) throws Exception {
+        ResponseEntity response = null;
+        Odontologo odontologoEncontrado = odontologoService.buscarOdontologoPorId(turno.getOdontologo().getId());
+        Paciente pacienteEncontrado = pacienteService.buscarPacientePorId(turno.getPaciente().getId());
+
+        if(odontologoEncontrado == null){
+            response = new ResponseEntity<String>("No se encuentra el odontologo en la base de datos",HttpStatus.BAD_REQUEST);
+        }
+
+        if(pacienteEncontrado == null){
+            response = new ResponseEntity<String>("No se encuentra el paciente en la base de datos",HttpStatus.BAD_REQUEST);
+
+        }
+        else if(odontologoEncontrado != null && pacienteEncontrado != null){
             response = ResponseEntity.ok(turnoService.registrarTurno(turno));
-        } else{
-            response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
         return response;
     }

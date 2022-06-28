@@ -4,13 +4,15 @@ import com.example.dh.ClinicaOdontologica.Model.Paciente;
 import com.example.dh.ClinicaOdontologica.Repository.IDaoRepository;
 import com.example.dh.ClinicaOdontologica.Util.Util;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@Repository
 public class PacienteDaoH2 implements IDaoRepository<Paciente> {
     private final static String DB_JDBC_DRIVER = "org.h2.Driver";
-    private final static String DB_URL = "jdbc:h2:~/Integrador;INIT=RUNSCRIPT FROM 'ClinicaOdontologica/create.sql'"; //con esta instrucción cuando se conecta a la base ejecuta el script de sql que esta en el archivo create.sql
+    private final static String DB_URL = "jdbc:h2:~/Integrador;INIT=RUNSCRIPT FROM 'create.sql'"; //con esta instrucción cuando se conecta a la base ejecuta el script de sql que esta en el archivo create.sql
     private final static String DB_USER = "sa";
     private final static String DB_PASSWORD = "";
 
@@ -43,6 +45,9 @@ public class PacienteDaoH2 implements IDaoRepository<Paciente> {
                 preparedStatement.setLong(5,paciente.getDomicilio().getId());
 
                 preparedStatement.executeUpdate();
+                ResultSet keys = preparedStatement.getGeneratedKeys();
+                if(keys.next())
+                    paciente.setId(keys.getLong(1));
             } finally {
                 //cierra el statement incluso si ocurre algun error al setear atributos o ejecutar la sentencia sql.
                 preparedStatement.close();
@@ -93,7 +98,9 @@ public class PacienteDaoH2 implements IDaoRepository<Paciente> {
             logger.error("No se encuentra el paciente con el id solicitado.", e);
             throw e;
         }
-        logger.info("El paciente con id: " + paciente.getId() + " ha sido encontrado en la base de datos");
+        if(paciente != null) {
+            logger.info("El paciente con id: " + paciente.getId() + " ha sido encontrado en la base de datos");
+        }
         return paciente;
     }
 

@@ -1,5 +1,4 @@
 package com.example.dh.ClinicaOdontologica.Controller;
-import com.example.dh.ClinicaOdontologica.DTO.OdontologoDTO;
 import com.example.dh.ClinicaOdontologica.Model.Odontologo;
 import com.example.dh.ClinicaOdontologica.Service.OdontologoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ public class OdontologoController {
 
 
     @Autowired
-    public OdontologoController(OdontologoService odontologoService, OdontologoDTO odontologoDTO) {
+    public OdontologoController(OdontologoService odontologoService) {
         this.odontologoService = odontologoService;
     }
 
