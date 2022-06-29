@@ -10,10 +10,10 @@ public class Turno {
     @SequenceGenerator(name = "turno_sequence", sequenceName = "turno_sequence")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "turno_sequence")
     private Long id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "paciente_id", nullable = false)
     private Paciente paciente;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "odontologo_id", nullable = false)
     private Odontologo odontologo;
     private Date fechaYhora;
