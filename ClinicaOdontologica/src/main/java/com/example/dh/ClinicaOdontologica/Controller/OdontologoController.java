@@ -1,13 +1,13 @@
 package com.example.dh.ClinicaOdontologica.Controller;
+import com.example.dh.ClinicaOdontologica.DTO.OdontologoDTO;
 import com.example.dh.ClinicaOdontologica.Model.Odontologo;
 import com.example.dh.ClinicaOdontologica.Service.OdontologoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
+import org.apache.log4j.Logger;
+import java.util.Collection;
 
 @RestController
 @RequestMapping("/odontologos")
@@ -15,67 +15,59 @@ public class OdontologoController {
 
 
     private OdontologoService odontologoService;
-
+    private static final Logger logger = Logger.getLogger(OdontologoController.class); //Instacia de logger para poder realizar logs.
 
     @Autowired
+    //la inyección de dependencias se hace por constructor porque es una mejor práctica que solo usar @Autowired.
     public OdontologoController(OdontologoService odontologoService) {
         this.odontologoService = odontologoService;
     }
 
-    //1.Agregar odontólogos
+    //1.Registrar odontólogos en la base de datos.
     @PostMapping
-    public ResponseEntity<Odontologo> registrarOdontologo(@RequestBody Odontologo odontologo) throws Exception {
-        return ResponseEntity.ok(odontologoService.registrarOdontologo(odontologo));
+    public ResponseEntity<?> registrarOdontologo(@RequestBody Odontologo odontologo){
+        odontologoService.registrarOdontologo(odontologo);
+        logger.info("El odontologo " + odontologo.getNombre() + " " + odontologo.getApellido() + " ha sido guardado correctamente en la base de datos");
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 
     //2.Buscar odontologos por id
     @GetMapping("/{id}")
-    public ResponseEntity<Odontologo> buscarOdontologo(@PathVariable Long id) throws Exception {
-        return ResponseEntity.ok(odontologoService.buscarOdontologoPorId(id));
+    public OdontologoDTO buscarOdontologo(@PathVariable Long id){
+        return odontologoService.buscarOdontologoPorId(id);
     }
 
     //3.Listar todos los odontólogos
     @GetMapping("/todos")
-    public ResponseEntity<List<Odontologo>> listarTodosOdontologos() throws Exception {
-        return ResponseEntity.ok(odontologoService.buscarTodosOdontologos());
+    public Collection<OdontologoDTO> listarTodosOdontologos(){
+        return odontologoService.buscarTodosOdontologos();
     }
 
     //4.Actualizar los datos de un odontólogo
     @PutMapping
-    public ResponseEntity<Odontologo> actualizarOdontologo(@RequestBody Odontologo odontologo) throws Exception {
-        ResponseEntity<Odontologo> response = null;
-        if (odontologo.getId() != null && odontologoService.buscarOdontologoPorId(odontologo.getId()) != null) {
-            response = ResponseEntity.ok(odontologoService.actualizarOdontologo(odontologo));
-        } else {
-            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-        return response;
+    public ResponseEntity<?> actualizarOdontologo(@RequestBody Odontologo odontologo){
+       odontologoService.actualizarOdontologo(odontologo);
+       logger.info("El odontologo " + odontologo.getNombre() + " " + odontologo.getApellido() + " ha sido actualizado correctamente en la base de datos");
+       return ResponseEntity.ok(HttpStatus.OK);
     }
 
     //5.Eliminar odontologo por id
-    @DeleteMapping("/eliminar/{id}")
-    public ResponseEntity<String> eliminarOdontologo(@PathVariable Long id) throws Exception {
-        ResponseEntity<String> response = null;
-        if (odontologoService.buscarOdontologoPorId(id) != null) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> eliminarOdontologo(@PathVariable Long id){
+        if(odontologoService.buscarOdontologoPorId(id) != null) {
             odontologoService.eliminarOdontologoPorId(id);
-            response = ResponseEntity.status(HttpStatus.NO_CONTENT).body("Eliminado");
-        } else {
-            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            logger.info("El odontologo con id: " + id + " ha sido eliminado correctamente.");
         }
-        return response;
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
     //6.Eliminar todos los odontologos de la base de datos
-    @DeleteMapping("/eliminarTodos")
-    public ResponseEntity<String> eliminarTodosOdontologos() throws Exception{
-        ResponseEntity<String> response = null;
-        if(odontologoService.buscarTodosOdontologos()!=null){
+    @DeleteMapping("/todos")
+    public ResponseEntity<?> eliminarTodosOdontologos(){
+        if(odontologoService.buscarTodosOdontologos() != null) {
             odontologoService.eliminarTodosOdontologos();
-            response = ResponseEntity.status(HttpStatus.NO_CONTENT).body("Eliminados");
-        }else{
-            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            logger.info("Todos los odontólogos han sido eliminados de la base de datos correctamente.");
         }
-        return response;
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
-
 }

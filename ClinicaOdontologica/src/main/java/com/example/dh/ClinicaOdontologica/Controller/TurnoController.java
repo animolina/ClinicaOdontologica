@@ -1,99 +1,72 @@
 package com.example.dh.ClinicaOdontologica.Controller;
-import com.example.dh.ClinicaOdontologica.Model.Odontologo;
-import com.example.dh.ClinicaOdontologica.Model.Paciente;
+import com.example.dh.ClinicaOdontologica.DTO.TurnoDTO;
 import com.example.dh.ClinicaOdontologica.Model.Turno;
-import com.example.dh.ClinicaOdontologica.Service.OdontologoService;
-import com.example.dh.ClinicaOdontologica.Service.PacienteService;
 import com.example.dh.ClinicaOdontologica.Service.TurnoService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Collection;
 
 @RestController
 @RequestMapping("/turnos")
 public class TurnoController {
 
     private TurnoService turnoService;
-    private PacienteService pacienteService;
-    private OdontologoService odontologoService;
+    private static final Logger logger = Logger.getLogger(TurnoController.class); //Instacia de logger para poder realizar logs.
     @Autowired
-    public TurnoController(TurnoService turnoService, PacienteService pacienteService, OdontologoService odontologoService) {
+    //la inyección de dependencias se hace por constructor porque es una mejor práctica que solo usar @Autowired.
+    public TurnoController(TurnoService turnoService) {
         this.turnoService = turnoService;
-        this.pacienteService = pacienteService;
-        this.odontologoService = odontologoService;
     }
-
     //1.Agregar turnos
     @PostMapping
-    public ResponseEntity registrarTurno(@RequestBody Turno turno) throws Exception {
-        ResponseEntity response = null;
-        Odontologo odontologoEncontrado = odontologoService.buscarOdontologoPorId(turno.getOdontologo().getId());
-        Paciente pacienteEncontrado = pacienteService.buscarPacientePorId(turno.getPaciente().getId());
-
-        if(odontologoEncontrado == null){
-            response = new ResponseEntity<String>("No se encuentra el odontologo en la base de datos",HttpStatus.BAD_REQUEST);
-        }
-
-        if(pacienteEncontrado == null){
-            response = new ResponseEntity<String>("No se encuentra el paciente en la base de datos",HttpStatus.BAD_REQUEST);
-
-        }
-        else if(odontologoEncontrado != null && pacienteEncontrado != null){
-            response = ResponseEntity.ok(turnoService.registrarTurno(turno));
-        }
-        return response;
+    public ResponseEntity<?> registrarTurno(@RequestBody Turno turno){
+        turnoService.registrarTurno(turno);
+        logger.info("El turno con el odontólogo " + turno.getOdontologo().getNombre() + " " + turno.getOdontologo().getApellido() + " en la fecha: " + turno.getFechaYhora() + " ha sido registrado correctamente en la base de datos");
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 
     //2.Buscar turnos por id
     @GetMapping("/{id}")
-    public ResponseEntity<Turno> buscarTurno(@PathVariable Long id) throws Exception {
-        return ResponseEntity.ok(turnoService.buscarTurnoPorId(id));
+    public TurnoDTO buscarTurno (@PathVariable Long id){
+        return turnoService.buscarTurnoPorId(id);
     }
 
     //3.Listar todos los turnos
     @GetMapping("/todos")
-    public ResponseEntity<List<Turno>> listarTodosTurnos() throws Exception {
-        return ResponseEntity.ok(turnoService.buscarTodosTurnos());
+    public Collection<TurnoDTO> listarTodosTurnos(){
+        return turnoService.buscarTodosTurnos();
     }
 
     //4.Actualizar los datos de un turno
     @PutMapping
-    public ResponseEntity<Turno> actualizarTurno(@RequestBody Turno turno) throws Exception {
-        ResponseEntity<Turno> response = null;
-        if (turno.getId() != null && turnoService.buscarTurnoPorId(turno.getId()) != null) {
-            response = ResponseEntity.ok(turnoService.actualizarTurno(turno));
-        } else {
-            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-        return response;
+    public ResponseEntity<?> actualizarTurno(@RequestBody Turno turno){
+        turnoService.actualizarTurno(turno);
+        logger.info("El turno con el id:  " + turno.getId() + " ha sido actualizado correctamente en la base de datos");
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 
     //5.Eliminar turno por id
-    @DeleteMapping("/eliminar/{id}")
-    public ResponseEntity<String> eliminarTurno(@PathVariable Long id) throws Exception {
-        ResponseEntity<String> response = null;
-        if (turnoService.buscarTurnoPorId(id) != null) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> eliminarTurno(@PathVariable Long id){
+        if(turnoService.buscarTurnoPorId(id) != null) {
             turnoService.eliminarTurnoPorId(id);
-            response = ResponseEntity.status(HttpStatus.NO_CONTENT).body("Eliminado");
-        } else {
-            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            logger.info("El turno con id: " + id + " ha sido eliminado correctamente.");
         }
-        return response;
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
     //6.Eliminar todos los turnos de la base de datos
-    @DeleteMapping("/eliminarTodos")
-    public ResponseEntity<String> eliminarTodosTurnos() throws Exception{
-        ResponseEntity<String> response = null;
-        if(turnoService.buscarTodosTurnos()!=null){
+    @DeleteMapping("/todos")
+    public ResponseEntity<?> eliminarTodosTurnos(){
+        if(turnoService.buscarTodosTurnos() != null) {
             turnoService.eliminarTodosTurnos();
-            response = ResponseEntity.status(HttpStatus.NO_CONTENT).body("Eliminados");
-        }else{
-            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            logger.info("Todos los turnos han sido eliminados de la base de datos correctamente.");
         }
-        return response;
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
+
 }
