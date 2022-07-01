@@ -17,10 +17,6 @@ public class OdontologoDTO {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -35,5 +31,15 @@ public class OdontologoDTO {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    //Sobrescritura metodo toString
+    @Override
+    public String toString() {
+        return "Odontologo{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido +
+                '}';
     }
 }

@@ -18,10 +18,6 @@ public class PacienteDTO {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -44,5 +40,17 @@ public class PacienteDTO {
 
     public void setDomicilioDTO(DomicilioDTO domicilioDTO) {
         this.domicilioDTO = domicilioDTO;
+    }
+
+    //Sobrescritura método toString
+
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", domicilio=" + domicilioDTO +
+                '}';
     }
 }

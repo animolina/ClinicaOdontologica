@@ -19,10 +19,6 @@ public class TurnoDTO {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public PacienteDTO getPacienteDTO() {
         return pacienteDTO;
     }
@@ -45,5 +41,15 @@ public class TurnoDTO {
 
     public void setFechaYhora(Date fechaYhora) {
         this.fechaYhora = fechaYhora;
+    }
+    //Sobrescritura método toString
+    @Override
+    public String toString() {
+        return "Turno{" +
+                "id=" + id +
+                ", paciente=" + pacienteDTO +
+                ", odontologo=" + odontologoDTO +
+                ", fecha y hora=" + fechaYhora +
+                '}';
     }
 }

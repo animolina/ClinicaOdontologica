@@ -20,10 +20,6 @@ public class DomicilioDTO {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getCalle() {
         return calle;
     }
@@ -54,5 +50,16 @@ public class DomicilioDTO {
 
     public void setProvincia(String provincia) {
         this.provincia = provincia;
+    }
+    //Sobrescritura método toString
+    @Override
+    public String toString() {
+        return "Domicilio{" +
+                "id=" + id +
+                ", calle='" + calle + '\'' +
+                ", numero='" + numero + '\'' +
+                ", localidad='" + localidad + '\'' +
+                ", provincia='" + provincia + '\'' +
+                '}';
     }
 }
