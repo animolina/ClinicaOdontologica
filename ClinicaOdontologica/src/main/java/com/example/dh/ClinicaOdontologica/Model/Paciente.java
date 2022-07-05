@@ -1,7 +1,8 @@
 package com.example.dh.ClinicaOdontologica.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;;
-import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 @Entity
@@ -15,7 +16,8 @@ public class Paciente {
     private String nombre;
     private String apellido;
     private int dni;
-    private Date fechaIngreso;
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss")
+    private LocalDateTime fechaIngreso;
     @OneToOne
     @JoinColumn(name = "domicilio_id")
     private Domicilio domicilio;
@@ -29,7 +31,7 @@ public class Paciente {
     }
     //Constructor con id
 
-    public Paciente(Long id, String nombre, String apellido, int dni, Date fechaIngreso, Domicilio domicilio,Set<Turno>turnos) {
+    public Paciente(Long id, String nombre, String apellido, int dni, LocalDateTime fechaIngreso, Domicilio domicilio,Set<Turno>turnos) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -39,7 +41,7 @@ public class Paciente {
         this.turnos=turnos;
     }
     //Constructor sin id y sin turnos
-    public Paciente(String nombre, String apellido, int dni, Date fechaIngreso, Domicilio domicilio) {
+    public Paciente(String nombre, String apellido, int dni, LocalDateTime fechaIngreso, Domicilio domicilio) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -76,11 +78,11 @@ public class Paciente {
         this.dni = dni;
     }
 
-    public Date getFechaIngreso() {
+    public LocalDateTime getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(Date fechaIngreso) {
+    public void setFechaIngreso(LocalDateTime fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 

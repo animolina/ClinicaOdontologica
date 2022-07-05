@@ -1,13 +1,15 @@
 package com.example.dh.ClinicaOdontologica.DTO;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TurnoDTO {
     private Long id;
     private PacienteDTO pacienteDTO;
     private OdontologoDTO odontologoDTO;
-    private Date fechaYhora;
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss")
+    private LocalDateTime fechaYhora;
 
     //Constructor vacío
     public TurnoDTO() {
@@ -35,11 +37,11 @@ public class TurnoDTO {
         this.odontologoDTO = odontologoDTO;
     }
 
-    public Date getFechaYhora() {
+    public LocalDateTime getFechaYhora() {
         return fechaYhora;
     }
 
-    public void setFechaYhora(Date fechaYhora) {
+    public void setFechaYhora(LocalDateTime fechaYhora) {
         this.fechaYhora = fechaYhora;
     }
     //Sobrescritura método toString

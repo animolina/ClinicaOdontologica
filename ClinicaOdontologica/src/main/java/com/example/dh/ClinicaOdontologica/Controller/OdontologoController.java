@@ -34,12 +34,18 @@ public class OdontologoController {
     //2.Buscar odontologos por id
     @GetMapping("/{id}")
     public OdontologoDTO buscarOdontologo(@PathVariable Long id){
+        if(odontologoService.buscarOdontologoPorId(id)==null) {
+            logger.info("No se encuentra en la base de datos el odontologo con id: " + id );
+        }
         return odontologoService.buscarOdontologoPorId(id);
     }
 
     //3.Listar todos los odontólogos
     @GetMapping("/todos")
     public Collection<OdontologoDTO> listarTodosOdontologos(){
+        if(odontologoService.buscarTodosOdontologos().isEmpty()) {
+            logger.info("No se encuentran odontólogos en la base de datos.");
+        }
         return odontologoService.buscarTodosOdontologos();
     }
 

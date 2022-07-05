@@ -1,6 +1,7 @@
 package com.example.dh.ClinicaOdontologica.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.persistence.*;;
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "turnos")
@@ -16,20 +17,21 @@ public class Turno {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "odontologo_id", nullable = false)
     private Odontologo odontologo;
-    private Date fechaYhora;
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss")
+    private LocalDateTime fechaYhora;
 
     //Constructor vacío
     public Turno() {
     }
     //Constructor con id
-    public Turno(Long id, Paciente paciente, Odontologo odontologo, Date fechaYhora) {
+    public Turno(Long id, Paciente paciente, Odontologo odontologo, LocalDateTime fechaYhora) {
         this.id = id;
         this.paciente = paciente;
         this.odontologo = odontologo;
         this.fechaYhora = fechaYhora;
     }
     //Constructor sin id
-    public Turno(Paciente paciente, Odontologo odontologo, Date fechaYhora) {
+    public Turno(Paciente paciente, Odontologo odontologo, LocalDateTime fechaYhora) {
         this.paciente = paciente;
         this.odontologo = odontologo;
         this.fechaYhora = fechaYhora;
@@ -55,11 +57,11 @@ public class Turno {
         this.odontologo = odontologo;
     }
 
-    public Date getFechaYhora() {
+    public LocalDateTime getFechaYhora() {
         return fechaYhora;
     }
 
-    public void setFechaYhora(Date fechaYhora) {
+    public void setFechaYhora(LocalDateTime fechaYhora) {
         this.fechaYhora = fechaYhora;
     }
 
