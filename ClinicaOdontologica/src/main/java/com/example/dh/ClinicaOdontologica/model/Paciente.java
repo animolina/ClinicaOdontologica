@@ -1,4 +1,4 @@
-package com.example.dh.ClinicaOdontologica.Model;
+package com.example.dh.ClinicaOdontologica.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;;
@@ -10,7 +10,7 @@ import java.util.Set;
 public class Paciente {
     //Atributos
     @Id
-    @SequenceGenerator(name = "paciente_sequence", sequenceName = "paciente_sequence")
+    @SequenceGenerator(name = "paciente_sequence", sequenceName = "paciente_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "paciente_sequence")
     private Long id;
     private String nombre;
@@ -18,10 +18,10 @@ public class Paciente {
     private int dni;
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime fechaIngreso;
-    @OneToOne
-    @JoinColumn(name = "domicilio_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "domicilio_id", referencedColumnName ="id")
     private Domicilio domicilio;
-    @OneToMany(mappedBy = "paciente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL, fetch = FetchType.LAZY) //@OneToMany es Lazy por defecto
     @JsonIgnore
     private Set<Turno> turnos = new HashSet<>();
 

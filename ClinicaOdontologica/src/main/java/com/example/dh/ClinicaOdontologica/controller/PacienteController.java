@@ -1,7 +1,9 @@
-package com.example.dh.ClinicaOdontologica.Controller;
-import com.example.dh.ClinicaOdontologica.DTO.PacienteDTO;
-import com.example.dh.ClinicaOdontologica.Model.Paciente;
-import com.example.dh.ClinicaOdontologica.Service.PacienteService;
+package com.example.dh.ClinicaOdontologica.controller;
+import com.example.dh.ClinicaOdontologica.dto.PacienteDTO;
+import com.example.dh.ClinicaOdontologica.exception.BadRequestException;
+import com.example.dh.ClinicaOdontologica.exception.EntityNotFoundException;
+import com.example.dh.ClinicaOdontologica.model.Paciente;
+import com.example.dh.ClinicaOdontologica.service.PacienteService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +27,7 @@ public class PacienteController {
 
     //1.Agregar pacientes
     @PostMapping
-    public ResponseEntity<?> registrarPaciente(@RequestBody Paciente paciente){
+    public ResponseEntity<?> registrarPaciente(@RequestBody Paciente paciente)throws BadRequestException {
         pacienteService.registrarPaciente(paciente);
         logger.info("El paciente " + paciente.getNombre() + " " + paciente.getApellido() + " ha sido guardado correctamente en la base de datos");
         return ResponseEntity.ok(HttpStatus.OK);
@@ -33,19 +35,19 @@ public class PacienteController {
 
     //2.Buscar pacientes por id
     @GetMapping("/{id}")
-    public PacienteDTO buscarPaciente(@PathVariable Long id){
+    public PacienteDTO buscarPaciente(@PathVariable Long id)throws EntityNotFoundException {
         return pacienteService.buscarPacientePorId(id);
     }
 
     //3.Listar todos los pacientes
     @GetMapping("/todos")
-    public Collection<PacienteDTO> listarTodosPacientes(){
-        return pacienteService.buscarTodosPacientes();
+    public Collection<PacienteDTO> listarTodosPacientes() throws EntityNotFoundException{
+       return pacienteService.buscarTodosPacientes();
     }
 
     //4.Actualizar los datos de un paciente
-    @PutMapping
-    public ResponseEntity<?> actualizarPaciente(@RequestBody Paciente paciente){
+    @PutMapping //Aclaración importante: en el body incluir id de paciente y id de domicilio.
+    public ResponseEntity<?> actualizarPaciente(@RequestBody Paciente paciente) throws EntityNotFoundException,BadRequestException{
         pacienteService.actualizarPaciente(paciente);
         logger.info("El paciente " + paciente.getNombre() + " " + paciente.getApellido() + " ha sido actualizado correctamente en la base de datos");
         return ResponseEntity.ok(HttpStatus.OK);
@@ -53,21 +55,17 @@ public class PacienteController {
 
     //5.Eliminar paciente por id
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminarPaciente(@PathVariable Long id){
-        if(pacienteService.buscarPacientePorId(id) != null) {
-            pacienteService.eliminarPacientePorId(id);
-            logger.info("El paciente con id: " + id + " ha sido eliminado correctamente.");
-        }
-        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    public ResponseEntity<?> eliminarPaciente(@PathVariable Long id)throws EntityNotFoundException{
+       pacienteService.eliminarPacientePorId(id);
+       logger.info("El paciente con id: " + id + " ha sido eliminado correctamente.");
+       return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
     //6.Eliminar todos los pacientes de la base de datos
     @DeleteMapping("/todos")
-    public ResponseEntity<?> eliminarTodosPacientes(){
-        if(pacienteService.buscarTodosPacientes() != null) {
-            pacienteService.eliminarTodosPacientes();
-            logger.info("Todos los pacientes han sido eliminados de la base de datos correctamente.");
-        }
+    public ResponseEntity<?> eliminarTodosPacientes() throws EntityNotFoundException{
+        pacienteService.eliminarTodosPacientes();
+        logger.info("Todos los pacientes han sido eliminados de la base de datos correctamente.");
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 }

@@ -1,42 +1,24 @@
-package com.example.dh.ClinicaOdontologica.Model;
+package com.example.dh.ClinicaOdontologica.dto;
+import com.example.dh.ClinicaOdontologica.model.Odontologo;
+import com.example.dh.ClinicaOdontologica.model.Paciente;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import javax.persistence.*;;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "turnos")
-public class Turno {
-    //atributos
-    @Id
-    @SequenceGenerator(name = "turno_sequence", sequenceName = "turno_sequence")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "turno_sequence")
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class TurnoDTO {
     private Long id;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "paciente_id", nullable = false)
     private Paciente paciente;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "odontologo_id", nullable = false)
     private Odontologo odontologo;
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime fechaYhora;
 
     //Constructor vacío
-    public Turno() {
+    public TurnoDTO() {
     }
-    //Constructor con id
-    public Turno(Long id, Paciente paciente, Odontologo odontologo, LocalDateTime fechaYhora) {
-        this.id = id;
-        this.paciente = paciente;
-        this.odontologo = odontologo;
-        this.fechaYhora = fechaYhora;
-    }
-    //Constructor sin id
-    public Turno(Paciente paciente, Odontologo odontologo, LocalDateTime fechaYhora) {
-        this.paciente = paciente;
-        this.odontologo = odontologo;
-        this.fechaYhora = fechaYhora;
-    }
+
     //Getters y Setters
+
     public Long getId() {
         return id;
     }
@@ -64,7 +46,6 @@ public class Turno {
     public void setFechaYhora(LocalDateTime fechaYhora) {
         this.fechaYhora = fechaYhora;
     }
-
     //Sobrescritura método toString
     @Override
     public String toString() {
@@ -75,5 +56,4 @@ public class Turno {
                 ", fecha y hora=" + fechaYhora +
                 '}';
     }
-
 }

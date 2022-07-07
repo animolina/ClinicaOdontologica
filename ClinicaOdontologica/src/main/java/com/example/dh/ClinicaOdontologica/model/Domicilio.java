@@ -1,11 +1,13 @@
-package com.example.dh.ClinicaOdontologica.Model;
+package com.example.dh.ClinicaOdontologica.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 @Entity
 @Table(name = "domicilios")
 public class Domicilio {
     //Atributos
     @Id
-    @SequenceGenerator(name = "domicilio_sequence", sequenceName = "domicilio_sequence")
+    @SequenceGenerator(name = "domicilio_sequence", sequenceName = "domicilio_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "domicilio_sequence")
     private Long id;
     private String calle;
@@ -13,6 +15,7 @@ public class Domicilio {
     private String localidad;
     private String provincia;
     @OneToOne(mappedBy = "domicilio")
+    @JsonIgnore
     private Paciente paciente;
 
     //Constructor vacío

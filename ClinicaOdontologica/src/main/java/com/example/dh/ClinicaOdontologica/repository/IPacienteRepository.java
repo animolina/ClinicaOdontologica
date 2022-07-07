@@ -1,5 +1,5 @@
-package com.example.dh.ClinicaOdontologica.Repository;
-import com.example.dh.ClinicaOdontologica.Model.Paciente;
+package com.example.dh.ClinicaOdontologica.repository;
+import com.example.dh.ClinicaOdontologica.model.Paciente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

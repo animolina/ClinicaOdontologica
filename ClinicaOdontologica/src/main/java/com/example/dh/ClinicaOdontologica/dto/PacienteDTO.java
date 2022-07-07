@@ -1,16 +1,19 @@
-package com.example.dh.ClinicaOdontologica.DTO;
+package com.example.dh.ClinicaOdontologica.dto;
+
+import com.example.dh.ClinicaOdontologica.model.Domicilio;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class OdontologoDTO {
+public class PacienteDTO {
     private Long id;
     private String nombre;
     private String apellido;
 
-    //Constructor vacío
-    public OdontologoDTO() {
-    }
+    private Domicilio domicilio;
 
+    //Constructor vacío
+    public PacienteDTO() {
+    }
     //Getters y Setters
 
     public Long getId() {
@@ -33,13 +36,23 @@ public class OdontologoDTO {
         this.apellido = apellido;
     }
 
-    //Sobrescritura metodo toString
+    public Domicilio getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(Domicilio domicilio) {
+        this.domicilio = domicilio;
+    }
+
+    //Sobrescritura método toString
+
     @Override
     public String toString() {
-        return "Odontologo{" +
+        return "Paciente{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido +
+                ", apellido='" + apellido + '\'' +
+                ", domicilio=" + domicilio +
                 '}';
     }
 }

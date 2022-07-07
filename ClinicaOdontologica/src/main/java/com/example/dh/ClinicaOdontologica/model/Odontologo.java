@@ -1,4 +1,4 @@
-package com.example.dh.ClinicaOdontologica.Model;
+package com.example.dh.ClinicaOdontologica.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.HashSet;
@@ -9,14 +9,14 @@ import java.util.Set;
 public class Odontologo {
     //atributos
     @Id
-    @SequenceGenerator(name = "odontologo_sequence",sequenceName = "odontologo_sequence")
+    @SequenceGenerator(name = "odontologo_sequence",sequenceName = "odontologo_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "odontologo_sequence")
     private Long id;
     private String nombre;
     private String apellido;
     private Long matricula;
 
-    @OneToMany(mappedBy = "odontologo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "odontologo",cascade = CascadeType.ALL, fetch = FetchType.LAZY) //@OneToMany es Lazy por defecto
     @JsonIgnore
     private Set<Turno> turnos = new HashSet<>();
 

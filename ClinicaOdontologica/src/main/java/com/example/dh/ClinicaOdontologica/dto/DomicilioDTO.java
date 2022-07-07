@@ -1,4 +1,4 @@
-package com.example.dh.ClinicaOdontologica.DTO;
+package com.example.dh.ClinicaOdontologica.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
