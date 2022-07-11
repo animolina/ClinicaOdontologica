@@ -235,3 +235,14 @@
 2022-07-10 21:52:44 ERROR GlobalExceptionHandler:20 - El paciente con el id: 404 no se encuentra en la base de datos
 2022-07-10 21:52:54 ERROR GlobalExceptionHandler:20 - El odontologo con el id: 1024 no se encuentra en la base de datos
 2022-07-10 21:53:04 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el turno no son correctos o están incompletos. Debe incluir obligatoriamente: id del odontólogo y id del paciente.
+2022-07-10 22:36:17 INFO  OdontologoController:60 - El odontologo con id: 34 ha sido eliminado correctamente.
+2022-07-10 22:37:23 INFO  OdontologoController:52 - El odontologo Carolina Quattroni ha sido actualizado correctamente en la base de datos
+2022-07-10 22:42:39 INFO  OdontologoController:60 - El odontologo con id: 35 ha sido eliminado correctamente.
+2022-07-10 22:42:42 INFO  OdontologoController:60 - El odontologo con id: 36 ha sido eliminado correctamente.
+2022-07-10 23:09:40 INFO  OdontologoController:60 - El odontologo con id: 37 ha sido eliminado correctamente.
+2022-07-10 23:09:43 INFO  OdontologoController:60 - El odontologo con id: 38 ha sido eliminado correctamente.
+2022-07-10 23:09:46 INFO  OdontologoController:60 - El odontologo con id: 39 ha sido eliminado correctamente.
+2022-07-10 23:23:27 INFO  OdontologoController:60 - El odontologo con id: 42 ha sido eliminado correctamente.
+2022-07-10 23:31:39 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el odontólogo no son correctos o están incompletos. Debe incluir obligatoriamente: nombre, apellido y matricula del odontólogo.
+2022-07-10 23:32:07 INFO  OdontologoController:32 - El odontologo Elba Marinelli ha sido guardado correctamente en la base de datos
+2022-07-10 23:32:41 INFO  OdontologoController:60 - El odontologo con id: 44 ha sido eliminado correctamente.
