@@ -8,10 +8,10 @@
 
 4. Es necesario loguearse para usar la aplicación. Acceder a: localhost:8080/ con las siguientes credenciales:
 
-  Username: usuario@gmail.com
+  - Username: usuario@gmail.com
   
-  Password: usuario
+  - Password: usuario
   
-5. URL a la página principal para manejar la carga y listado de odontólogos: localhost:8080/pantallaPrincipal.html
+5. URL a la página principal para manejar la carga y listado de odontólogos: [manejo de odontólogos](localhost:8080/pantallaPrincipal.html)
 
 
