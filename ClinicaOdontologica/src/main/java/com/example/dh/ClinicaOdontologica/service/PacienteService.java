@@ -67,6 +67,9 @@ public class PacienteService {
 
     //5. Actualizar los datos de un paciente.
     public Paciente actualizarPaciente(Paciente paciente)throws EntityNotFoundException, BadRequestException{
+        if(paciente.getId() == null || paciente.getDomicilio().getId() == null){
+            throw new BadRequestException("Debe incluir el id del paciente y el id del domicilio para poder actualizarlo");
+        }
         buscarPacientePorId(paciente.getId());
         return guardarPaciente(paciente);
     }

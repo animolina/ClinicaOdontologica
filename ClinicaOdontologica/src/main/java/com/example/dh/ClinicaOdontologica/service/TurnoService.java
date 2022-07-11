@@ -72,6 +72,9 @@ public class TurnoService {
 
     //5. Actualizar los datos de un turno.
     public Turno actualizarTurno(Turno turno) throws EntityNotFoundException, BadRequestException{
+        if(turno.getId() == null || turno.getOdontologo().getId() == null || turno.getPaciente().getId() == null){
+            throw new BadRequestException("Debe incluir el id del turno, el id del odontólogo y el id del paciente para poder actualizarlo");
+        }
         buscarTurnoPorId(turno.getId());
         return guardarTurno(turno);
     }

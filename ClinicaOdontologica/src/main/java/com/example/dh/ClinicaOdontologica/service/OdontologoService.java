@@ -68,9 +68,10 @@ public class OdontologoService {
 
     //5. Actualizar los datos de un odontólogo.
     public Odontologo actualizarOdontologo(Odontologo odontologo) throws EntityNotFoundException, BadRequestException{
-        buscarOdontologoPorId(odontologo.getId()); OdontologoService odontologoService;
-   PacienteService pacienteService;
-
+        if(odontologo.getId() == null){
+            throw new BadRequestException("Debe incluir el id del odontólogo para poder actualizarlo");
+        }
+        buscarOdontologoPorId(odontologo.getId());
         return guardarOdontologo(odontologo);
     }
 

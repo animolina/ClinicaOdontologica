@@ -258,3 +258,39 @@
 2022-07-11 13:18:39 ERROR GlobalExceptionHandler:20 - No se encuentran odontólogos en la base de datos
 2022-07-11 13:18:53 INFO  OdontologoController:32 - El odontologo Ani Molina ha sido guardado correctamente en la base de datos
 2022-07-11 13:32:18 ERROR GlobalExceptionHandler:20 - No se encuentran odontólogos en la base de datos
+2022-07-11 14:29:52 INFO  OdontologoController:32 - El odontologo Ana Molina ha sido guardado correctamente en la base de datos
+2022-07-11 14:29:59 INFO  OdontologoController:32 - El odontologo Elena  Lopez ha sido guardado correctamente en la base de datos
+2022-07-11 14:30:03 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el odontólogo no son correctos o están incompletos. Debe incluir obligatoriamente: nombre, apellido y matricula del odontólogo.
+2022-07-11 14:30:08 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el odontólogo no son correctos o están incompletos. Debe incluir obligatoriamente: nombre, apellido y matricula del odontólogo.
+2022-07-11 14:30:18 INFO  OdontologoController:32 - El odontologo Ricardo Casals ha sido guardado correctamente en la base de datos
+2022-07-11 14:30:27 INFO  OdontologoController:32 - El odontologo Felipe Manganiello ha sido guardado correctamente en la base de datos
+2022-07-11 14:31:35 INFO  PacienteController:32 - El paciente Gerardo Juanes ha sido guardado correctamente en la base de datos
+2022-07-11 14:32:04 INFO  PacienteController:32 - El paciente Mariana Morales ha sido guardado correctamente en la base de datos
+2022-07-11 14:32:35 INFO  PacienteController:32 - El paciente Juan Lacognata ha sido guardado correctamente en la base de datos
+2022-07-11 14:33:27 INFO  PacienteController:32 - El paciente Laura Gregoria ha sido guardado correctamente en la base de datos
+2022-07-11 14:33:35 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el paciente no son correctos o están incompletos. Debe incluir obligatoriamente: nombre, apellido y domicilio del paciente.
+2022-07-11 14:35:25 INFO  TurnoController:33 - El turno con el odontólogo con id:  3 para el paciente con id: 1 en la fecha: 2020-11-18T14:23:15 ha sido registrado correctamente en la base de datos
+2022-07-11 14:35:37 INFO  TurnoController:33 - El turno con el odontólogo con id:  4 para el paciente con id: 2 en la fecha: 2019-10-18T13:23:15 ha sido registrado correctamente en la base de datos
+2022-07-11 14:35:54 INFO  TurnoController:33 - El turno con el odontólogo con id:  2 para el paciente con id: 4 en la fecha: 2018-11-16T12:23:15 ha sido registrado correctamente en la base de datos
+2022-07-11 14:36:17 INFO  TurnoController:33 - El turno con el odontólogo con id:  3 para el paciente con id: 1 en la fecha: 2022-10-15T10:22:16 ha sido registrado correctamente en la base de datos
+2022-07-11 14:36:47 ERROR GlobalExceptionHandler:20 - El turno con el id: 15 no se encuentra en la base de datos
+2022-07-11 14:36:59 ERROR GlobalExceptionHandler:20 - El odontologo con el id: 25 no se encuentra en la base de datos
+2022-07-11 14:37:05 ERROR GlobalExceptionHandler:20 - El paciente con el id: 25 no se encuentra en la base de datos
+2022-07-11 14:37:31 INFO  PacienteController:52 - El paciente Juana Morales ha sido actualizado correctamente en la base de datos
+2022-07-11 14:40:09 ERROR GlobalExceptionHandler:27 - Debe incluir el id del paciente para poder actualizarlo
+2022-07-11 14:40:33 INFO  PacienteController:52 - El paciente Juana Morales ha sido actualizado correctamente en la base de datos
+2022-07-11 14:40:50 INFO  PacienteController:52 - El paciente Juana Morales ha sido actualizado correctamente en la base de datos
+2022-07-11 14:41:07 INFO  PacienteController:60 - El paciente con id: 2 ha sido eliminado correctamente.
+2022-07-11 14:46:59 ERROR GlobalExceptionHandler:27 - Debe incluir el id del paciente y el id del domicilio para poder actualizarlo
+2022-07-11 14:47:09 ERROR GlobalExceptionHandler:27 - Debe incluir el id del paciente y el id del domicilio para poder actualizarlo
+2022-07-11 14:47:18 ERROR GlobalExceptionHandler:27 - Debe incluir el id del paciente y el id del domicilio para poder actualizarlo
+2022-07-11 14:47:24 INFO  PacienteController:52 - El paciente Pepe Juanes ha sido actualizado correctamente en la base de datos
+2022-07-11 14:49:48 ERROR GlobalExceptionHandler:27 - Debe incluir el id del odontólogo para poder actualizarlo
+2022-07-11 14:50:07 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el odontólogo no son correctos o están incompletos. Debe incluir obligatoriamente: nombre, apellido y matricula del odontólogo.
+2022-07-11 14:51:00 INFO  OdontologoController:52 - El odontologo Ana Paula Molina ha sido actualizado correctamente en la base de datos
+2022-07-11 14:52:41 ERROR GlobalExceptionHandler:20 - El odontologo con el id: 1 no se encuentra en la base de datos
+2022-07-11 14:52:49 INFO  TurnoController:53 - El turno con el id:  3 ha sido actualizado correctamente en la base de datos
+2022-07-11 14:53:12 ERROR GlobalExceptionHandler:27 - Debe incluir el id del turno, el id del odontólogo y el id del paciente para poder actualizarlo
+2022-07-11 14:53:21 ERROR GlobalExceptionHandler:27 - Debe incluir el id del turno, el id del odontólogo y el id del paciente para poder actualizarlo
+2022-07-11 14:53:37 ERROR GlobalExceptionHandler:27 - Debe incluir el id del turno, el id del odontólogo y el id del paciente para poder actualizarlo
+2022-07-11 14:55:58 INFO  OdontologoController:32 - El odontologo Luis Olavarria ha sido guardado correctamente en la base de datos

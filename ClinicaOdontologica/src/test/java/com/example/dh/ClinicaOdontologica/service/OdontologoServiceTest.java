@@ -42,7 +42,7 @@ class OdontologoServiceTest {
     @Test //testeo listar todos los odontólogos.
     public void testListarOdontologos() throws EntityNotFoundException{
         List<OdontologoDTO> odontologos = odontologoService.buscarTodosOdontologos();
-        assertTrue(!odontologos.isEmpty()); //Compruebo que la lista de odontólogos no esté vacía.
+        assertTrue(!odontologos.isEmpty()); //Compruebo que la lista de odontólogos no esté vacía, para esto ya deben existir odontólogos en la base de datos, de lo contrario falla el test.
     }
 
 
