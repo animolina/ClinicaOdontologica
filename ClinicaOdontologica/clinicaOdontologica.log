@@ -167,3 +167,71 @@
 2022-07-07 16:25:11 ERROR GlobalExceptionHandler:20 - El odontologo con el id: 10 no se encuentra en la base de datos
 2022-07-07 16:25:16 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el turno no son correctos o están incompletos. Debe incluir obligatoriamente: id del odontólogo y id del paciente.
 2022-07-07 16:25:24 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el turno no son correctos o están incompletos. Debe incluir obligatoriamente: id del odontólogo y id del paciente.
+2022-07-08 20:58:06 INFO  OdontologoController:32 - El odontologo Ana Molina ha sido guardado correctamente en la base de datos
+2022-07-08 21:02:05 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el odontólogo no son correctos o están incompletos. Debe incluir obligatoriamente: nombre, apellido y matricula del odontólogo.
+2022-07-08 21:03:19 INFO  OdontologoController:32 - El odontologo Elena Lopez ha sido guardado correctamente en la base de datos
+2022-07-08 21:03:44 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el odontólogo no son correctos o están incompletos. Debe incluir obligatoriamente: nombre, apellido y matricula del odontólogo.
+2022-07-08 21:05:09 INFO  OdontologoController:32 - El odontologo Mariano Dominguez ha sido guardado correctamente en la base de datos
+2022-07-08 21:11:32 INFO  OdontologoController:32 - El odontologo Renzo Manganiello ha sido guardado correctamente en la base de datos
+2022-07-08 21:13:40 INFO  OdontologoController:32 - El odontologo Carlos Espinoza ha sido guardado correctamente en la base de datos
+2022-07-08 21:14:28 INFO  OdontologoController:32 - El odontologo Jose Luis Acuña ha sido guardado correctamente en la base de datos
+2022-07-08 21:15:49 INFO  OdontologoController:32 - El odontologo Minerva Espitalieri ha sido guardado correctamente en la base de datos
+2022-07-08 21:18:23 INFO  OdontologoController:32 - El odontologo Celeste Herrera ha sido guardado correctamente en la base de datos
+2022-07-08 21:20:37 INFO  OdontologoController:32 - El odontologo Jacinto Magallanes ha sido guardado correctamente en la base de datos
+2022-07-08 21:23:01 INFO  OdontologoController:32 - El odontologo Gimena Acardi ha sido guardado correctamente en la base de datos
+2022-07-08 21:24:52 INFO  OdontologoController:32 - El odontologo Carolina Morales ha sido guardado correctamente en la base de datos
+2022-07-08 21:29:27 INFO  OdontologoController:32 - El odontologo Elida Juarez ha sido guardado correctamente en la base de datos
+2022-07-08 21:30:10 INFO  OdontologoController:32 - El odontologo Paula Ariza ha sido guardado correctamente en la base de datos
+2022-07-08 21:34:23 INFO  OdontologoController:32 - El odontologo Paula Ariza ha sido guardado correctamente en la base de datos
+2022-07-08 21:34:32 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el odontólogo no son correctos o están incompletos. Debe incluir obligatoriamente: nombre, apellido y matricula del odontólogo.
+2022-07-08 21:35:31 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el odontólogo no son correctos o están incompletos. Debe incluir obligatoriamente: nombre, apellido y matricula del odontólogo.
+2022-07-08 21:36:05 INFO  OdontologoController:32 - El odontologo Estefania Carola ha sido guardado correctamente en la base de datos
+2022-07-08 21:38:17 INFO  OdontologoController:32 - El odontologo Susana Balbo ha sido guardado correctamente en la base de datos
+2022-07-08 21:39:43 INFO  OdontologoController:32 - El odontologo Luis Juanes ha sido guardado correctamente en la base de datos
+2022-07-08 21:41:07 INFO  OdontologoController:32 - El odontologo Cecilia Lacognata ha sido guardado correctamente en la base de datos
+2022-07-08 21:41:18 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el odontólogo no son correctos o están incompletos. Debe incluir obligatoriamente: nombre, apellido y matricula del odontólogo.
+2022-07-08 21:42:17 INFO  OdontologoController:32 - El odontologo Laura Gimenez ha sido guardado correctamente en la base de datos
+2022-07-08 21:43:39 INFO  OdontologoController:32 - El odontologo Maria Pio ha sido guardado correctamente en la base de datos
+2022-07-08 21:44:20 INFO  OdontologoController:32 - El odontologo Pepe Cañada ha sido guardado correctamente en la base de datos
+2022-07-08 21:46:57 INFO  OdontologoController:32 - El odontologo Olga Paredes ha sido guardado correctamente en la base de datos
+2022-07-08 21:47:08 INFO  OdontologoController:32 - El odontologo Olga Paredes ha sido guardado correctamente en la base de datos
+2022-07-08 21:47:30 INFO  OdontologoController:60 - El odontologo con id: 25 ha sido eliminado correctamente.
+2022-07-08 21:47:34 ERROR GlobalExceptionHandler:20 - El odontologo con el id: 25 no se encuentra en la base de datos
+2022-07-08 21:47:46 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el odontólogo no son correctos o están incompletos. Debe incluir obligatoriamente: nombre, apellido y matricula del odontólogo.
+2022-07-08 21:48:53 INFO  OdontologoController:32 - El odontologo Paula Elba ha sido guardado correctamente en la base de datos
+2022-07-08 21:49:52 INFO  OdontologoController:32 - El odontologo Maria Fernandez ha sido guardado correctamente en la base de datos
+2022-07-08 21:56:17 INFO  OdontologoController:32 - El odontologo Ricardo Molina ha sido guardado correctamente en la base de datos
+2022-07-08 21:58:35 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el odontólogo no son correctos o están incompletos. Debe incluir obligatoriamente: nombre, apellido y matricula del odontólogo.
+2022-07-08 21:58:54 INFO  OdontologoController:32 - El odontologo Jose Marino ha sido guardado correctamente en la base de datos
+2022-07-09 15:54:02 INFO  OdontologoController:32 - El odontologo Josecito Hidalgo ha sido guardado correctamente en la base de datos
+2022-07-09 17:38:11 INFO  OdontologoController:60 - El odontologo con id: 30 ha sido eliminado correctamente.
+2022-07-09 17:38:16 INFO  OdontologoController:60 - El odontologo con id: 29 ha sido eliminado correctamente.
+2022-07-09 17:38:19 INFO  OdontologoController:60 - El odontologo con id: 28 ha sido eliminado correctamente.
+2022-07-09 17:38:22 INFO  OdontologoController:60 - El odontologo con id: 27 ha sido eliminado correctamente.
+2022-07-09 17:38:26 INFO  OdontologoController:60 - El odontologo con id: 26 ha sido eliminado correctamente.
+2022-07-09 17:38:29 ERROR GlobalExceptionHandler:20 - El odontologo con el id: 25 no se encuentra en la base de datos
+2022-07-09 17:38:32 INFO  OdontologoController:60 - El odontologo con id: 24 ha sido eliminado correctamente.
+2022-07-09 17:38:35 INFO  OdontologoController:60 - El odontologo con id: 23 ha sido eliminado correctamente.
+2022-07-09 17:38:37 INFO  OdontologoController:60 - El odontologo con id: 22 ha sido eliminado correctamente.
+2022-07-09 17:38:40 INFO  OdontologoController:60 - El odontologo con id: 21 ha sido eliminado correctamente.
+2022-07-09 17:38:42 INFO  OdontologoController:60 - El odontologo con id: 20 ha sido eliminado correctamente.
+2022-07-09 17:45:54 INFO  OdontologoController:60 - El odontologo con id: 19 ha sido eliminado correctamente.
+2022-07-09 17:45:57 INFO  OdontologoController:60 - El odontologo con id: 18 ha sido eliminado correctamente.
+2022-07-09 17:45:58 INFO  OdontologoController:60 - El odontologo con id: 17 ha sido eliminado correctamente.
+2022-07-09 17:46:01 INFO  OdontologoController:60 - El odontologo con id: 16 ha sido eliminado correctamente.
+2022-07-09 17:46:03 INFO  OdontologoController:60 - El odontologo con id: 15 ha sido eliminado correctamente.
+2022-07-09 17:46:05 INFO  OdontologoController:60 - El odontologo con id: 14 ha sido eliminado correctamente.
+2022-07-09 17:46:07 INFO  OdontologoController:60 - El odontologo con id: 13 ha sido eliminado correctamente.
+2022-07-09 17:46:10 INFO  OdontologoController:60 - El odontologo con id: 12 ha sido eliminado correctamente.
+2022-07-09 17:46:12 INFO  OdontologoController:60 - El odontologo con id: 11 ha sido eliminado correctamente.
+2022-07-09 18:06:31 INFO  OdontologoController:32 - El odontologo Felipe Femenia ha sido guardado correctamente en la base de datos
+2022-07-10 21:26:25 INFO  OdontologoController:32 - El odontologo Ali Baba ha sido guardado correctamente en la base de datos
+2022-07-10 21:48:57 INFO  OdontologoController:60 - El odontologo con id: 31 ha sido eliminado correctamente.
+2022-07-10 21:49:01 INFO  OdontologoController:60 - El odontologo con id: 32 ha sido eliminado correctamente.
+2022-07-10 21:49:04 INFO  OdontologoController:60 - El odontologo con id: 33 ha sido eliminado correctamente.
+2022-07-10 21:50:50 INFO  PacienteController:32 - El paciente Maria Marta Lopresti ha sido guardado correctamente en la base de datos
+2022-07-10 21:51:52 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el paciente no son correctos o están incompletos. Debe incluir obligatoriamente: nombre, apellido y domicilio del paciente.
+2022-07-10 21:52:33 INFO  TurnoController:33 - El turno con el odontólogo con id:  1 para el paciente con id: 4 en la fecha: 2020-11-18T14:23:15 ha sido registrado correctamente en la base de datos
+2022-07-10 21:52:44 ERROR GlobalExceptionHandler:20 - El paciente con el id: 404 no se encuentra en la base de datos
+2022-07-10 21:52:54 ERROR GlobalExceptionHandler:20 - El odontologo con el id: 1024 no se encuentra en la base de datos
+2022-07-10 21:53:04 ERROR GlobalExceptionHandler:27 - Los datos ingresados para registrar el turno no son correctos o están incompletos. Debe incluir obligatoriamente: id del odontólogo y id del paciente.

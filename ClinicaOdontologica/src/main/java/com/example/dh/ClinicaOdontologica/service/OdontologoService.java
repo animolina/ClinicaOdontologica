@@ -6,11 +6,10 @@ import com.example.dh.ClinicaOdontologica.model.Odontologo;
 import com.example.dh.ClinicaOdontologica.repository.IOdontologoRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+
+import java.util.*;
 
 @Service
 public class OdontologoService {
@@ -53,9 +52,10 @@ public class OdontologoService {
     }
 
     //4. Obtener un listado de todos los odontólogos registrados en la DB.
-    public Set<OdontologoDTO> buscarTodosOdontologos() throws EntityNotFoundException {
-        List<Odontologo> odontologos = odontologoRepository.findAll();
-        Set<OdontologoDTO> odontologosDTO = new HashSet<>();
+    public List<OdontologoDTO> buscarTodosOdontologos() throws EntityNotFoundException {
+        //Uso list en vez de Set, porque de esta forma puedo mostrarlos en la pagina, ordenados por id mediante Sort.by
+        List<Odontologo> odontologos = odontologoRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
+        List<OdontologoDTO> odontologosDTO = new ArrayList<OdontologoDTO>();
         if(odontologos.isEmpty()) {
             throw new EntityNotFoundException("No se encuentran odontólogos en la base de datos");
         } else {
