@@ -65,7 +65,7 @@ public class TurnoIntegrationTests {
 
     @Test
     public void buscarTurnosPorIdTest() throws Exception {
-        MvcResult respuesta = this.mockMvc.perform(MockMvcRequestBuilders.get("/pacientes/{id}","1"))
+        MvcResult respuesta = this.mockMvc.perform(MockMvcRequestBuilders.get("/turnos/{id}","1"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
