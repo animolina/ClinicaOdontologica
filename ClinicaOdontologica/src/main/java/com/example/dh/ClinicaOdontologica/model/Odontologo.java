@@ -37,6 +37,14 @@ public class Odontologo {
         this.apellido = apellido;
         this.matricula = matricula;
     }
+    //Constructor con id, nombre, apellido y matricula
+    public Odontologo(Long id, String nombre, String apellido, Long matricula) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.matricula = matricula;
+    }
+
     //Getters y Setters (accessor methods)
     public Long getId() {
         return id;

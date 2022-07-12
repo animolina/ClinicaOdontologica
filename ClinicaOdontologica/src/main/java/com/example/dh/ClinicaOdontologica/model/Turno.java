@@ -29,11 +29,10 @@ public class Turno {
     public Turno() {
     }
     //Constructor con id
-    public Turno(Long id, Paciente paciente, Odontologo odontologo, LocalDateTime fechaYhora) {
+    public Turno(Long id, Paciente paciente, Odontologo odontologo) {
         this.id = id;
         this.paciente = paciente;
         this.odontologo = odontologo;
-        this.fechaYhora = fechaYhora;
     }
     //Constructor sin id
     public Turno(Paciente paciente, Odontologo odontologo, LocalDateTime fechaYhora) {
@@ -41,6 +40,13 @@ public class Turno {
         this.odontologo = odontologo;
         this.fechaYhora = fechaYhora;
     }
+
+    //Constructor con paciente y odontologo
+    public Turno(Paciente paciente, Odontologo odontologo) {
+        this.paciente = paciente;
+        this.odontologo = odontologo;
+    }
+
     //Getters y Setters
     public Long getId() {
         return id;

@@ -24,7 +24,6 @@ public class Domicilio {
     }
 
     //Constructor con id
-
     public Domicilio(Long id, String calle, int numero, String localidad, String provincia, Paciente paciente) {
         this.id = id;
         this.calle = calle;
@@ -40,6 +39,13 @@ public class Domicilio {
         this.numero = numero;
         this.localidad = localidad;
         this.provincia = provincia;
+    }
+
+    //Constructor con id, calle y numero
+    public Domicilio(Long id, String calle, int numero) {
+        this.id = id;
+        this.calle = calle;
+        this.numero = numero;
     }
 
     //Getters y Setters (accessor methods)

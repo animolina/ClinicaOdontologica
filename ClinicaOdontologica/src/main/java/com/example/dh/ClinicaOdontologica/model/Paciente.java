@@ -31,14 +31,14 @@ public class Paciente {
     }
     //Constructor con id
 
-    public Paciente(Long id, String nombre, String apellido, int dni, LocalDateTime fechaIngreso, Domicilio domicilio,Set<Turno>turnos) {
+    public Paciente(Long id, String nombre, String apellido, int dni, LocalDateTime fechaIngreso, Domicilio domicilio) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.fechaIngreso = fechaIngreso;
         this.domicilio = domicilio;
-        this.turnos=turnos;
+
     }
     //Constructor sin id y sin turnos
     public Paciente(String nombre, String apellido, int dni, LocalDateTime fechaIngreso, Domicilio domicilio) {
@@ -46,6 +46,20 @@ public class Paciente {
         this.apellido = apellido;
         this.dni = dni;
         this.fechaIngreso = fechaIngreso;
+        this.domicilio = domicilio;
+    }
+
+    //Constructor con id, nombre,apellido y domicilio
+    public Paciente(Long id, String nombre, String apellido, Domicilio domicilio) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.domicilio = domicilio;
+    }
+    //Constructor sin id, con nombre, apellido y domicilio
+    public Paciente(String nombre, String apellido, Domicilio domicilio) {
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.domicilio = domicilio;
     }
 
