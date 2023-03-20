@@ -1,8 +1,18 @@
 ## **Trabajo Integrador Backend I. Certified Tech Developer.**
 
-## **Lineamientos generales**
+**Lenguajes, tecnologías y recursos empleados:**
+- Java
+- SpringBoot
+- Hibernate
+- Maven
+- SpringBoot Security
+- Log4j
 
-1.Luego de descargar el archivo y antes de ejecutar la aplicación, correr **Maven** con las opciones **"clean" y "package"** seleccionadas.
+
+**Lineamientos generales**
+
+
+1. Luego de descargar el archivo y antes de ejecutar la aplicación, correr **Maven** con las opciones **"clean" y "package"** seleccionadas.
 
 2. Los tests deben correrse teniendo en cuenta que la **aplicación en si no debe estar en ejecución.**
 
